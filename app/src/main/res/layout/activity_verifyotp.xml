@@ -45,6 +45,7 @@
                 android:textSize="30sp"/>
 
             <TextView
+                android:id="@+id/Etphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -57,6 +58,7 @@
                 android:textSize="16sp"/>
 
             <EditText
+                android:id="@+id/txt_otp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
@@ -64,6 +66,7 @@
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:layout_marginStart="20dp"
+                android:textSize="16sp"
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
@@ -72,18 +75,19 @@
                 />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_verify_otp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/shape_button_border"
-                android:text="Verify OTP"
-                android:enabled="false"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:textColor="@color/white"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/lexend_medium"/>
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape_button"
+                android:fontFamily="@font/lexend_medium"
+                android:text="Verify OTP"
+                android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/btn_resendOtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"

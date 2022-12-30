@@ -15,8 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,52 +28,53 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome!"
                 android:fontFamily="@font/lexend_medium"
+                android:text="Welcome!"
                 android:textColor="@color/white"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Login to auto backup your data securely"
-                android:fontFamily="@font/lexend_regular"
                 android:alpha=".5"
+                android:fontFamily="@font/lexend_regular"
+                android:text="Login to auto backup your data securely"
                 android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/txt_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/shape_textbox"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
                 android:hint="Enter Mobile Number"
-                android:textColorHint="#86FFFFFF"
-                />
+                android:paddingStart="15dp"
+                android:textSize="16sp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_sendOtp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/shape_button"
-                android:text="Send OTP"
-                android:textColor="@color/black"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/lexend_medium"/>
+                android:background="@drawable/shape_button"
+                android:fontFamily="@font/lexend_medium"
+                android:text="Send OTP"
+                android:textColor="@color/background" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="By creating an account, you agree to our Terms of Services &amp; Privacy Policy"
-                android:fontFamily="@font/lexend_regular"
-                android:alpha=".5"
                 android:layout_marginTop="25dp"
+                android:alpha=".5"
+                android:fontFamily="@font/lexend_regular"
+                android:text="By creating an account, you agree to our Terms of Services &amp; Privacy Policy"
                 android:textColor="@color/white"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
         </LinearLayout>
     </ScrollView>

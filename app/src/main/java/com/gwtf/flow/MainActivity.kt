@@ -10,14 +10,39 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import com.gwtf.flow.databinding.ActivityMainBinding
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.gwtf.flow.Utilites.Constants
+import com.gwtf.flow.Utilites.Constants.Business_Selected
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var bottomBar: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        bottomBar = findViewById(R.id.bottom_navigation)
+
+        loadFragment(HomeFragment())
+        bottomBar.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_home -> {
+                    loadFragment(HomeFragment())
+                }
+            }
+            true
+        }
+
+    }
+
+    fun loadFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment)
+            commit()
+        }
     }
 
 }
