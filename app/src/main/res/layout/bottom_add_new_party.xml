@@ -58,7 +58,6 @@
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
         android:hint="Party Name"
-        android:textColorHint="#86FFFFFF"
         />
 
     <TextView
@@ -83,7 +82,6 @@
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
         android:hint="Mobile Number (Optional)"
-        android:textColorHint="#86FFFFFF"
         />
 
     <TextView
@@ -108,7 +106,6 @@
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
         android:hint="Email (Optional)"
-        android:textColorHint="#86FFFFFF"
         />
 
     <TextView
@@ -136,10 +133,11 @@
             android:backgroundTint="#482196F3">
 
             <TextView
+                android:id="@+id/customerTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="From Contacts"
-                android:textColor="#03A9F4"
+                android:text="Customer"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:paddingBottom="8dp"
                 android:paddingTop="8dp"
@@ -160,10 +158,11 @@
             android:backgroundTint="#482196F3">
 
             <TextView
+                android:id="@+id/supplierTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter Name &amp; Add"
-                android:textColor="#2196F3"
+                android:text="Supplier"
+                android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:paddingBottom="8dp"
                 android:paddingTop="8dp"

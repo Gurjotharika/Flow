@@ -19,13 +19,14 @@ import com.gwtf.flow.Utilites.IDGenrator
 import com.gwtf.flow.Utilites.getDateTime
 import com.gwtf.flow.model.BookModel
 import com.gwtf.flow.model.BusinessModel
+import com.gwtf.flow.model.ContactModel
 import com.gwtf.flow.model.PartyModel
 import org.checkerframework.common.subtyping.qual.Bottom
 import java.sql.Time
 import java.util.*
 import java.util.stream.LongStream
 
-class PartyAdapter (private val LST: List<PartyModel>):
+class PartyAdapter (private var LST: List<PartyModel>):
  RecyclerView.Adapter<PartyAdapter.ViewHolder>() {
 
      class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -62,6 +63,12 @@ class PartyAdapter (private val LST: List<PartyModel>):
              }
          }
      }
+
+    fun filterList(filterlist: ArrayList<PartyModel>) {
+        LST = filterlist
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, null)

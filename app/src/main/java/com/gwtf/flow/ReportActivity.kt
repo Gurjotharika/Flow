@@ -31,6 +31,7 @@ class ReportActivity : AppCompatActivity() {
         totalIn.text = "" + AmountCalculator.getIn(this)
 
         val listReports = findViewById<RecyclerView>(R.id.listReports)
+        listReports.isNestedScrollingEnabled = false
         val layoutManager = GridLayoutManager(this, 1)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         listReports.layoutManager = layoutManager

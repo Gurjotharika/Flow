@@ -12,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.github.marlonlom.utilities.timeago.TimeAgoMessages
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.gwtf.flow.BookActivity
+import com.gwtf.flow.*
 import com.gwtf.flow.Database.SqlDatabase
-import com.gwtf.flow.DuplicateBookActivity
-import com.gwtf.flow.EditBookNameActivity
-import com.gwtf.flow.R
 import com.gwtf.flow.Utilites.AmountCalculator
 import com.gwtf.flow.Utilites.Constants.Business_Selected
 import com.gwtf.flow.Utilites.IDGenrator
@@ -42,6 +39,7 @@ class DataAdapter (private var LST: List<DataModel>):
              val amount = itemView.findViewById<TextView>(R.id.amount)
              val time_text = itemView.findViewById<TextView>(R.id.time_text)
 
+             title.text = list.partyName
              time_text.text = "Date: " + list.date + " Time: " + list.time
              amount.text = list.amount
              remark.text = list.remark
@@ -56,6 +54,25 @@ class DataAdapter (private var LST: List<DataModel>):
                  payment.setTextColor(Color.parseColor("#B0372E"))
              }
 
+             itemView.setOnClickListener {
+                 itemView.context.startActivity(Intent(itemView.context, EntryViewActivity::class.java)
+                     .putExtra("id", list.id)
+                     .putExtra("amount", list.amount)
+                     .putExtra("date", list.date)
+                     .putExtra("number", list.number)
+                     .putExtra("remark", list.remark)
+                     .putExtra("BOOKNAME", list.BOOKNAME)
+                     .putExtra("BUSINESSID", list.BUSINESSID)
+                     .putExtra("PARTYID", list.PARTYID)
+                     .putExtra("bookid", list.bookid)
+                     .putExtra("category", list.category)
+                     .putExtra("partyName", list.partyName)
+                     .putExtra("paymentStatus", list.paymentStatus)
+                     .putExtra("paymentMode", list.paymentMode)
+                     .putExtra("paymentType", list.paymentType)
+                     .putExtra("time", list.time)
+                 )
+             }
          }
      }
 

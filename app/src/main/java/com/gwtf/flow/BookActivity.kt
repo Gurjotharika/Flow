@@ -22,6 +22,9 @@ class BookActivity : AppCompatActivity() {
     lateinit var list_payments: RecyclerView
     lateinit var totalBooks: TextView
     lateinit var txt_total: TextView
+    lateinit var txtIn: TextView
+    lateinit var txtOut: TextView
+    lateinit var txtTotal: TextView
     lateinit var notFound: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,9 +66,9 @@ class BookActivity : AppCompatActivity() {
         notFound = findViewById(R.id.notFound)
         notFound.visibility = View.GONE
 
-        val txtIn = findViewById<TextView>(R.id.txt_incash)
-        val txtOut = findViewById<TextView>(R.id.txt_outcash)
-        val txtTotal = findViewById<TextView>(R.id.txt_total)
+        txtIn = findViewById<TextView>(R.id.txt_incash)
+        txtOut = findViewById<TextView>(R.id.txt_outcash)
+        txtTotal = findViewById<TextView>(R.id.txt_total)
 
         txtIn.text = "" + AmountCalculator.getBookIn(this, BookId)
         txtOut.text = "" + AmountCalculator.getBookOut(this, BookId)
@@ -106,6 +109,10 @@ class BookActivity : AppCompatActivity() {
         adapter = DataAdapter(list)
         totalBooks.text = "Showing " + list.size + " entries"
         list_payments.adapter = adapter
+        txtIn.text = "" + AmountCalculator.getBookIn(this, BookId)
+        txtOut.text = "" + AmountCalculator.getBookOut(this, BookId)
+        txtTotal.text = "" + (AmountCalculator.getBookIn(this, BookId) - AmountCalculator.getBookOut(this, BookId))
+
     }
 
     override fun onResume() {

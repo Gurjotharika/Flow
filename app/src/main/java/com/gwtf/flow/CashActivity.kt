@@ -20,6 +20,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayout
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.Utilites.Constants.Business_Selected
 import com.gwtf.flow.Utilites.IDGenrator
@@ -54,7 +57,6 @@ class CashActivity : AppCompatActivity() {
             lst.clear()
             lst = database.getPaymentMode()
             lst.add(SingleModel("Cash"))
-            lst.add(SingleModel("Add New"))
             val adapter = SingleAdapter(lst)
             list_PaymentMode.adapter = adapter
         }
@@ -91,8 +93,8 @@ class CashActivity : AppCompatActivity() {
             startActivityForResult(intent, ACTIVITY_PARTY_REQUEST_CODE)
         }
 
-        val pmLayoutmanager = LinearLayoutManager(this)
-        pmLayoutmanager.orientation = LinearLayoutManager.HORIZONTAL
+        val pmLayoutmanager = FlexboxLayoutManager(this)
+        pmLayoutmanager.flexDirection = FlexDirection.ROW
         list_PaymentMode.layoutManager = pmLayoutmanager
 
         updatePayment()

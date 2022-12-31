@@ -231,6 +231,31 @@ public class SqlDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateData(String id, String bookName, String bookId,
+                        String partyName, String partyId, String businessid, int amount, String date,
+                        String time, String remark, String contact, String category, String paymentMode,
+                        String paymentInOut, String status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put("BOOKNAME", bookName);
+        values.put("BOOKID", bookId);
+        values.put("PARTYNAME", partyName);
+        values.put("PARTYID", partyId);
+        values.put("BUSINESSID", businessid);
+        values.put(AMOUNT, amount);
+        values.put(DATE, date);
+        values.put(TIME, time);
+        values.put(REMARK, remark);
+        values.put(CONTACT_NUMBER, contact);
+        values.put(CATEGORY, category);
+        values.put(PAYMENT_MODE, paymentMode);
+        values.put(PAYMENT_TYPE, paymentInOut);
+        values.put(PAYMENT_STATUS, status);
+        db.update(TBL_BOOKDATA, values, ID+"=?", new String[] {id});
+        db.close();
+    }
+
     public ArrayList<BookAmountModel> getBooksAmount (String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA + " WHERE BUSINESSID=?", new String[] {id} );
@@ -368,6 +393,19 @@ public class SqlDatabase extends SQLiteOpenHelper {
         return experienceModelsList;
     }
 
+    public ArrayList<CategoriesModel> getPaymentsMode() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_PAYMENTMODE,null);
+        ArrayList<CategoriesModel> experienceModelsList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                experienceModelsList.add(new CategoriesModel( "",cursor.getString(0)));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return experienceModelsList;
+    }
 
     public ArrayList<BusinessModel> getBusiness() {
         SQLiteDatabase db = this.getReadableDatabase();

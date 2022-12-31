@@ -25,12 +25,12 @@ class SelectBusinessTypeActivity : AppCompatActivity() {
 
         fun getData() {
             list.clear()
-            list.add(CategoriesModel("", "Retailer"))
-            list.add(CategoriesModel("", "Distributor"))
-            list.add(CategoriesModel("", "Manufacturer"))
-            list.add(CategoriesModel("", "Service Provider"))
-            list.add(CategoriesModel("", "Trader"))
-            list.add(CategoriesModel("", "Other"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/3733/3733121.png", "Retailer"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/3505/3505356.png", "Distributor"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/2299/2299203.png", "Manufacturer"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/3715/3715149.png", "Service Provider"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/6417/6417455.png", "Trader"))
+            list.add(CategoriesModel("https://cdn-icons-png.flaticon.com/128/7245/7245102.png", "Other"))
             val adadper = BusinessTypeAdapter(list)
             listBusiness.adapter = adadper
         }
