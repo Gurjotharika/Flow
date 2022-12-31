@@ -125,6 +125,9 @@ class CashActivity : AppCompatActivity() {
                     BookId, BookId, txt_partyName.text.toString(), txt_partyName.text.toString(),
                     Business_Selected, txtAmount.text.toString().toInt(), txt_date.text.toString(), txt_time.text.toString(),
                     txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(), paymentMode, "OUT", "Payed")
+
+            startActivity(Intent(this, SuccessActivity::class.java))
+            finish()
         }
 
         val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->

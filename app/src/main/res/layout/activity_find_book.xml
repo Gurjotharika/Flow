@@ -42,4 +42,15 @@
 
     </LinearLayout>
 
+    <include
+        android:id="@+id/notFound"
+        layout="@layout/layout_not_found"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/boooks"
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>

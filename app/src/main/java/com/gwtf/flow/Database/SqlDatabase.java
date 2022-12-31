@@ -342,11 +342,11 @@ public class SqlDatabase extends SQLiteOpenHelper {
 
     public ArrayList<BookAmountModel> getBookAmount (String id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA + " WHERE BUSINESSID=?", new String[] {id} );
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA + " WHERE BOOKID=?", new String[] {id} );
         ArrayList<BookAmountModel> experienceModelsList = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
-                experienceModelsList.add(new BookAmountModel(cursor.getInt(5), cursor.getString(12)));
+                experienceModelsList.add(new BookAmountModel(cursor.getInt(6), cursor.getString(13)));
             } while (cursor.moveToNext());
         }
         cursor.close();

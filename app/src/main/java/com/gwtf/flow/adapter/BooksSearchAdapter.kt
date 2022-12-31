@@ -1,7 +1,6 @@
 package com.gwtf.flow.adapter
 
 import android.content.Intent
-import android.graphics.Color
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
@@ -29,43 +28,42 @@ import java.sql.Time
 import java.util.*
 import java.util.stream.LongStream
 
-class DataAdapter (private var LST: List<DataModel>):
- RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+class BooksSearchAdapter (private var LST: List<BookModel>):
+ RecyclerView.Adapter<BooksSearchAdapter.ViewHolder>() {
 
      class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-         fun bind (list: DataModel) {
-             val title = itemView.findViewById<TextView>(R.id.title)
-             val type = itemView.findViewById<TextView>(R.id.type)
-             val payment = itemView.findViewById<TextView>(R.id.payment)
-             val mode = itemView.findViewById<TextView>(R.id.mode)
-             val remark = itemView.findViewById<TextView>(R.id.remark)
-             val amount = itemView.findViewById<TextView>(R.id.amount)
-             val time_text = itemView.findViewById<TextView>(R.id.time_text)
+         fun bind (list: BookModel) {
+             val txt_bookname = itemView.findViewById<TextView>(R.id.txt_bookname)
+             val textView = itemView.findViewById<TextView>(R.id.textView)
+             val txt_amountin = itemView.findViewById<TextView>(R.id.txt_amountin)
+             val btn_more = itemView.findViewById<ImageView>(R.id.btn_more)
+             val db = SqlDatabase(itemView.context)
+             /// image
+             txt_bookname.text = list.name
 
-             time_text.text = "Date: " + list.date + " Time: " + list.time
-             amount.text = list.amount
-             remark.text = list.remark
-             mode.text = list.paymentMode
-             remark.text = list.remark
-             payment.text = list.amount
-             type.text = ""
+             txt_amountin.text = "" + AmountCalculator.getIn(itemView.context);
 
-             if (list.paymentType.equals("IN")) {
-                 payment.setTextColor(Color.parseColor("#357A38"))
-             } else {
-                 payment.setTextColor(Color.parseColor("#B0372E"))
+             val mili = list.date as Long
+             val msg: TimeAgoMessages = TimeAgoMessages.Builder().withLocale(Locale.forLanguageTag("en")).build()
+             textView.text = "Updated " + TimeAgo.using(mili, msg)
+
+             itemView.setOnClickListener {
+                 itemView.context.startActivity(
+                     Intent(itemView.context, BookActivity::class.java).putExtra("id", list.id)
+                 )
              }
 
+             btn_more.visibility = View.GONE
          }
      }
 
-    fun filterList(filterlist: ArrayList<DataModel>) {
+    fun filterList(filterlist: ArrayList<BookModel>) {
         LST = filterlist
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horizontal_job, null)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_book, null)
         return ViewHolder(view)
     }
 

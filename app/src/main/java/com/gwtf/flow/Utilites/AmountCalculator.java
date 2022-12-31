@@ -42,7 +42,7 @@ public class AmountCalculator {
         SqlDatabase db = new SqlDatabase(context);
         int total = 0;
         List<BookAmountModel> list = new ArrayList<>();
-        list = db.getBooksAmount(id);
+        list = db.getBookAmount(id);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getType().equals("IN")) {
                 total += list.get(i).getAmount();
@@ -55,7 +55,7 @@ public class AmountCalculator {
         SqlDatabase db = new SqlDatabase(context);
         int total = 0;
         List<BookAmountModel> list = new ArrayList<>();
-        list = db.getBooksAmount(id);
+        list = db.getBookAmount(id);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getType().equals("OUT")) {
                 total += list.get(i).getAmount();

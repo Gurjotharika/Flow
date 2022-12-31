@@ -185,6 +185,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
+                    android:id="@+id/btnFilter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -192,6 +193,7 @@
                     android:src="@drawable/ic_filter"/>
 
                 <ImageView
+                    android:id="@+id/btnSearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

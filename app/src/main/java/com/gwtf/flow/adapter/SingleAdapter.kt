@@ -20,8 +20,6 @@ class SingleAdapter (val LST: List<SingleModel>): RecyclerView.Adapter<SingleAda
 
             if (CashActivity.paymentMode.equals(list.text)) {
                 textView.setTextColor(Color.parseColor("#5dc7d6"))
-            } else {
-                textView.setTextColor(Color.parseColor("#ffffff"))
             }
 
             textView.text = list.text

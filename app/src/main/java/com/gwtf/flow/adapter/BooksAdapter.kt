@@ -40,7 +40,7 @@ class BooksAdapter (private val LST: List<BookModel>):
              /// image
              txt_bookname.text = list.name
 
-             txt_amountin.text = "" + AmountCalculator.getIn(itemView.context);
+             txt_amountin.text = "" + AmountCalculator.getBookIn(itemView.context, list.id);
 
              val mili = list.date as Long
              val msg: TimeAgoMessages = TimeAgoMessages.Builder().withLocale(Locale.forLanguageTag("en")).build()
@@ -48,9 +48,10 @@ class BooksAdapter (private val LST: List<BookModel>):
 
              itemView.setOnClickListener {
                  itemView.context.startActivity(
-                     Intent(itemView.context, BookActivity::class.java).putExtra("id", list.id)
+                     Intent(itemView.context, BookActivity::class.java).putExtra("id", list.id).putExtra("name", list.name)
                  )
              }
+             btn_more.visibility = View.GONE
 
              btn_more.setOnClickListener {
                  val popupMenus = PopupMenu(itemView.context, itemView)
@@ -68,14 +69,6 @@ class BooksAdapter (private val LST: List<BookModel>):
                              itemView.context.startActivity(
                                  Intent(itemView.context, DuplicateBookActivity::class.java)
                                      .putExtra("id", list.id).putExtra("name", list.name))
-                             true
-                         }
-                         R.id.menu_movebook -> {
-
-                             true
-                         }
-                         R.id.menu_duplicatebook -> {
-
                              true
                          }
                          else -> false

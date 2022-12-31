@@ -3,6 +3,7 @@ package com.gwtf.flow
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.Directory
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.firestore.Query
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.Utilites.AmountCalculator
 import com.gwtf.flow.Utilites.Constants
@@ -41,6 +44,8 @@ class HomeFragment : Fragment() {
     lateinit var v: Context
     lateinit var db: SqlDatabase
     lateinit var layout_no_book: View
+    lateinit var txt_incash: TextView
+    lateinit var txt_outcash: TextView
     lateinit var layout_books: LinearLayout
 
     override fun onCreateView(
@@ -75,8 +80,19 @@ class HomeFragment : Fragment() {
         layout_no_book = view.findViewById<View>(R.id.layout_no_book)
         layout_books = view.findViewById<LinearLayout>(R.id.layout_books)
 
-        val txt_incash = view.findViewById<TextView>(R.id.txt_incash)
-        val txt_outcash = view.findViewById<TextView>(R.id.txt_outcash)
+        txt_incash = view.findViewById<TextView>(R.id.txt_incash)
+        txt_outcash = view.findViewById<TextView>(R.id.txt_outcash)
+
+        val btnFilter = view.findViewById<ImageView>(R.id.btnFilter)
+        btnFilter.setOnClickListener {
+            showFilterDialog()
+        }
+
+        val btnSearch = view.findViewById<ImageView>(R.id.btnSearch)
+        btnSearch.setOnClickListener {
+            startActivity(Intent(view.context, FindBookActivity::class.java))
+        }
+
         val bttnCard1 = view.findViewById<CardView>(R.id.btn_card1)
         val bttnCard2 = view.findViewById<CardView>(R.id.btn_card2)
         txt_incash.text = "" + AmountCalculator.getIn(view.context)
@@ -113,6 +129,14 @@ class HomeFragment : Fragment() {
     }
 
     /// Get Data
+    var list = ArrayList<BookModel>()
+
+    override fun onResume() {
+        super.onResume()
+        getBooksData()
+        txt_incash.text = "" + AmountCalculator.getIn(context)
+        txt_outcash.text = "" + AmountCalculator.getOut(context)
+    }
 
     fun getBooksData() {
         if (db.getBooks(Business_Selected).size > 0) {
@@ -122,7 +146,6 @@ class HomeFragment : Fragment() {
             layout_no_book.visibility = View.VISIBLE
             layout_books.visibility = View.GONE
         }
-        var list = ArrayList<BookModel>()
         list.clear()
         list = db.getBooks(Business_Selected)
         val listAdapter = BooksAdapter(list)
@@ -146,6 +169,7 @@ class HomeFragment : Fragment() {
         var businessData = ArrayList<BusinessModel>()
         businessData = db.getBusiness()
         businessAdapter = BusinessAdapter(businessData)
+
         list_business.adapter = businessAdapter
 
         btn_close.setOnClickListener {
@@ -194,5 +218,69 @@ class HomeFragment : Fragment() {
         dialog.setContentView(view)
         dialog.show()
         return true
+    }
+
+    fun showFilterDialog() {
+        val dialog = BottomSheetDialog(v)
+        val view = layoutInflater.inflate(R.layout.bottom_filter, null)
+        dialog.getWindow()!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
+        val lastUpdate = view.findViewById<RadioButton>(R.id.lastUpdate)
+        val name = view.findViewById<RadioButton>(R.id.name)
+        val netBalance = view.findViewById<RadioButton>(R.id.netBalance)
+        val netBalancelow = view.findViewById<RadioButton>(R.id.netBalancelow)
+        val lastCreated = view.findViewById<RadioButton>(R.id.lastCreated)
+
+        lastUpdate.setOnClickListener {
+            name.isChecked = false
+            lastCreated.isChecked = false
+            lastUpdate.isChecked = true
+            netBalance.isChecked = false
+
+            list.sortByDescending {
+                it.date
+            }
+
+            val listAdapter = BooksAdapter(list)
+            list_books.adapter = listAdapter
+        }
+
+        name.setOnClickListener {
+            name.isChecked = true
+            lastCreated.isChecked = false
+            lastUpdate.isChecked = false
+            netBalance.isChecked = false
+
+            list.sortBy {
+                it.name
+            }
+            val listAdapter = BooksAdapter(list)
+            list_books.adapter = listAdapter
+        }
+
+        netBalance.setOnClickListener {
+            name.isChecked = false
+            lastCreated.isChecked = false
+            lastUpdate.isChecked = false
+            netBalance.isChecked = true
+
+            list.sortByDescending {
+                it.name
+            }
+            val listAdapter = BooksAdapter(list)
+            list_books.adapter = listAdapter
+        }
+
+        lastCreated.setOnClickListener {
+            name.isChecked = false
+            lastCreated.isChecked = true
+            lastUpdate.isChecked = false
+            netBalance.isChecked = false
+
+            getBooksData()
+        }
+
+        dialog.setContentView(view)
+        dialog.show()
     }
 }
