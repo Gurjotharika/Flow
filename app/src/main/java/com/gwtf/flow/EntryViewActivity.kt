@@ -10,13 +10,19 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.FileProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.api.Distribution.BucketOptions.Linear
 import com.gwtf.flow.Database.SqlDatabase
+import com.gwtf.flow.adapter.BusinessAdapter
+import com.gwtf.flow.model.BusinessModel
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -26,6 +32,7 @@ class EntryViewActivity : AppCompatActivity() {
 
     lateinit var amount: String
     lateinit var name: String
+    lateinit var _id: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +59,7 @@ class EntryViewActivity : AppCompatActivity() {
 
         dateTimeTxt.text = intent.getStringExtra("date") + " " + intent.getStringExtra("time")
         paymentTxt.text = intent.getStringExtra("amount")
+        _id = intent.getStringExtra("id").toString()
         customerNameTxt.text = intent.getStringExtra("partyName")
         numberTxt.text = intent.getStringExtra("partyName").toString().replace(Regex("[^0-9]"), "")
         remarkTxt.text = intent.getStringExtra("remark")
@@ -81,10 +89,109 @@ class EntryViewActivity : AppCompatActivity() {
             finish()
         }
 
+        val moreBtn = findViewById<ImageView>(R.id.moreBtn)
+        moreBtn.setOnClickListener {
+            val dialog = BottomSheetDialog(this)
+            val view = layoutInflater.inflate(R.layout.bottom_actions, null)
+            dialog.getWindow()!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
+            val deleteEntry = view.findViewById<LinearLayout>(R.id.deleteEntry)
+            val moveBtn = view.findViewById<LinearLayout>(R.id.moveBtn)
+            val copyBtn = view.findViewById<LinearLayout>(R.id.copyBtn)
+            val copyOP = view.findViewById<LinearLayout>(R.id.copyOP)
+            deleteEntry.setOnClickListener {
+                deleteEntry()
+            }
+
+            moveBtn.setOnClickListener {
+                startActivity(Intent(this, BookActionActivity::class.java)
+                    .putExtra("id", intent.getStringExtra("id"))
+                    .putExtra("amount", intent.getStringExtra("amount"))
+                    .putExtra("date", intent.getStringExtra("date"))
+                    .putExtra("number", intent.getStringExtra("number"))
+                    .putExtra("remark", intent.getStringExtra("remark"))
+                    .putExtra("BOOKNAME", intent.getStringExtra("BOOKNAME"))
+                    .putExtra("BUSINESSID", intent.getStringExtra("BUSINESSID"))
+                    .putExtra("PARTYID", intent.getStringExtra("PARTYID"))
+                    .putExtra("bookid", intent.getStringExtra("bookid"))
+                    .putExtra("category", intent.getStringExtra("category"))
+                    .putExtra("partyName", intent.getStringExtra("partyName"))
+                    .putExtra("paymentStatus", intent.getStringExtra("paymentStatus"))
+                    .putExtra("paymentMode", intent.getStringExtra("paymentMode"))
+                    .putExtra("paymentType", intent.getStringExtra("paymentType"))
+                    .putExtra("time", intent.getStringExtra("time"))
+                    .putExtra("ACTION", "Move"))
+            }
+
+            copyBtn.setOnClickListener {
+                startActivity(Intent(this, BookActionActivity::class.java)
+                    .putExtra("id", intent.getStringExtra("id"))
+                    .putExtra("amount", intent.getStringExtra("amount"))
+                    .putExtra("date", intent.getStringExtra("date"))
+                    .putExtra("number", intent.getStringExtra("number"))
+                    .putExtra("remark", intent.getStringExtra("remark"))
+                    .putExtra("BOOKNAME", intent.getStringExtra("BOOKNAME"))
+                    .putExtra("BUSINESSID", intent.getStringExtra("BUSINESSID"))
+                    .putExtra("PARTYID", intent.getStringExtra("PARTYID"))
+                    .putExtra("bookid", intent.getStringExtra("bookid"))
+                    .putExtra("category", intent.getStringExtra("category"))
+                    .putExtra("partyName", intent.getStringExtra("partyName"))
+                    .putExtra("paymentStatus", intent.getStringExtra("paymentStatus"))
+                    .putExtra("paymentMode", intent.getStringExtra("paymentMode"))
+                    .putExtra("paymentType", intent.getStringExtra("paymentType"))
+                    .putExtra("time", intent.getStringExtra("time"))
+                    .putExtra("ACTION", "COPY"))
+            }
+
+            copyOP.setOnClickListener {
+                startActivity(Intent(this, BookActionActivity::class.java)
+                    .putExtra("id", intent.getStringExtra("id"))
+                    .putExtra("amount", intent.getStringExtra("amount"))
+                    .putExtra("date", intent.getStringExtra("date"))
+                    .putExtra("number", intent.getStringExtra("number"))
+                    .putExtra("remark", intent.getStringExtra("remark"))
+                    .putExtra("BOOKNAME", intent.getStringExtra("BOOKNAME"))
+                    .putExtra("BUSINESSID", intent.getStringExtra("BUSINESSID"))
+                    .putExtra("PARTYID", intent.getStringExtra("PARTYID"))
+                    .putExtra("bookid", intent.getStringExtra("bookid"))
+                    .putExtra("category", intent.getStringExtra("category"))
+                    .putExtra("partyName", intent.getStringExtra("partyName"))
+                    .putExtra("paymentStatus", intent.getStringExtra("paymentStatus"))
+                    .putExtra("paymentMode", intent.getStringExtra("paymentMode"))
+                    .putExtra("paymentType", intent.getStringExtra("paymentType"))
+                    .putExtra("time", intent.getStringExtra("time"))
+                    .putExtra("ACTION", "COPYOP"))
+            }
+
+            dialog.setContentView(view)
+            dialog.show()
+        }
+
         val shareButton = findViewById<TextView>(R.id.shareButton)
         shareButton.setOnClickListener {
             showBottomDialog()
         }
+    }
+
+    fun deleteEntry() {
+        val dialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.dialog_delete_entry, null)
+        val yesBtn = view.findViewById<Button>(R.id.yesBtn)
+        val noBtn = view.findViewById<Button>(R.id.noBtn)
+        val database = SqlDatabase(this)
+        yesBtn.setOnClickListener {
+            database.deleteData(_id)
+            dialog.hide()
+            onBackPressed()
+            finish()
+        }
+
+        noBtn.setOnClickListener {
+            dialog.hide()
+        }
+
+        dialog.setContentView(view)
+        dialog.show()
     }
 
     fun showBottomDialog() {

@@ -40,6 +40,7 @@ class SplashActivity : AppCompatActivity() {
                     Constants.UserName = sharedPref.getString("UserName", null).toString()
                     Constants.PhoneNumber = sharedPref.getString("PhoneNumber", null).toString()
                     Constants.Email = sharedPref.getString("Email", null).toString()
+                    Constants.Address = sharedPref.getString("Address", null).toString()
 
                     startActivity(
                         Intent(

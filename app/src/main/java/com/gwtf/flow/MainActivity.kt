@@ -32,6 +32,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     loadFragment(HomeFragment())
                 }
+                R.id.nav_money -> {
+                    loadFragment(TransactionsFragment())
+                }
+                R.id.action_settings-> {
+                    loadFragment(SettingsFragment())
+                }
             }
             true
         }

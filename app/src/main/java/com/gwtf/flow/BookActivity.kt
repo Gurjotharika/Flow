@@ -7,6 +7,7 @@ import android.provider.ContactsContract.Data
 import android.view.View
 import android.widget.*
 import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gwtf.flow.Database.SqlDatabase
@@ -89,7 +90,7 @@ class BookActivity : AppCompatActivity() {
         db = SqlDatabase(this)
         list_payments = findViewById<RecyclerView>(R.id.list_payments)
         totalBooks = findViewById<TextView>(R.id.totalBooks)
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = GridLayoutManager(this, 1)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         list_payments.isNestedScrollingEnabled = false
         list_payments.layoutManager = layoutManager

@@ -2,6 +2,7 @@ package com.gwtf.flow
 
 import android.app.Activity
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.graphics.Color
@@ -9,7 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore.Audio.Radio
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.TextView
@@ -18,6 +23,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.Utilites.Constants
 import com.gwtf.flow.Utilites.IDGenrator
@@ -99,6 +105,7 @@ class EditEntryActivity : AppCompatActivity() {
         val layout_details = findViewById<View>(R.id.layout_details)
         val saveBtn = findViewById<View>(R.id.saveBtn)
         val txt_title = findViewById<TextView>(R.id.txt_title)
+        val deleteEntry = findViewById<ImageView>(R.id.deleteEntry)
         txt_date = findViewById(R.id.txt_date)
         txt_time = findViewById(R.id.txt_time)
         txt_partyName = findViewById(R.id.txt_partyName)
@@ -106,6 +113,27 @@ class EditEntryActivity : AppCompatActivity() {
         txt_category = findViewById(R.id.txt_category)
         list_PaymentMode = findViewById(R.id.list_PaymentMode)
         list_PaymentMode.isNestedScrollingEnabled = false
+
+        deleteEntry.setOnClickListener {
+            val dialog = BottomSheetDialog(this)
+            val view = layoutInflater.inflate(R.layout.dialog_delete_entry, null)
+            val yesBtn = view.findViewById<Button>(R.id.yesBtn)
+            val noBtn = view.findViewById<Button>(R.id.noBtn)
+
+            yesBtn.setOnClickListener {
+                database.deleteData(_id)
+                dialog.hide()
+                onBackPressed()
+                finish()
+            }
+
+            noBtn.setOnClickListener {
+                dialog.hide()
+            }
+
+            dialog.setContentView(view)
+            dialog.show()
+        }
 
         layout_details.visibility = View.GONE
 

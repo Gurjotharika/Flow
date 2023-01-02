@@ -188,9 +188,23 @@ public class SqlDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateBusinessName(String id, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NAME, NAME);
+        db.update(TBL_BUSINESS, values, ID+"=?", new String[] {id});
+        db.close();
+    }
+
     public void deleteBook (String id, String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TBL_BOOK,ID + "=? AND " +NAME+"=?", new String[] {id, name});
+        db.close();
+    }
+
+    public void deleteData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TBL_BOOKDATA,ID + "=?", new String[] {id});
         db.close();
     }
 
@@ -314,6 +328,36 @@ public class SqlDatabase extends SQLiteOpenHelper {
         return experienceModelsList;
     }
 
+    public ArrayList<DataModel> getDataParty (String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA + " WHERE PARTYNAME=?", new String[] {id} );
+        ArrayList<DataModel> experienceModelsList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                experienceModelsList.add(new DataModel(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10),
+                        cursor.getString(11),
+                        cursor.getString(12),
+                        cursor.getString(13),
+                        cursor.getString(14)
+                ));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return experienceModelsList;
+    }
+
     public ArrayList<DataModel> getData () {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA, null);
@@ -410,6 +454,28 @@ public class SqlDatabase extends SQLiteOpenHelper {
     public ArrayList<BusinessModel> getBusiness() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BUSINESS, null );
+        ArrayList<BusinessModel> experienceModelsList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                experienceModelsList.add(new BusinessModel(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(4),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7)));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return experienceModelsList;
+    }
+
+    public ArrayList<BusinessModel> getBusines(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BUSINESS + " WHERE ID=?",  new String[] {id});
         ArrayList<BusinessModel> experienceModelsList = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {

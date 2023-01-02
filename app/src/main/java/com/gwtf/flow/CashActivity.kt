@@ -38,6 +38,7 @@ class CashActivity : AppCompatActivity() {
 
     lateinit var BookId: String
     var CashIn: Boolean = false
+    var partId: String = ""
 
     lateinit var txt_date: TextView
     lateinit var txt_time: TextView
@@ -119,12 +120,13 @@ class CashActivity : AppCompatActivity() {
         saveBtn.setOnClickListener {
             if (CashIn)
                 database.addData(IDGenrator.getId("DATA"),
-                    BookId, BookId, txt_partyName.text.toString(), txt_partyName.text.toString(),
+                    BookId, BookId, partId, txt_partyName.text.toString(),
                     Business_Selected, txtAmount.text.toString().toInt(), txt_date.text.toString(), txt_time.text.toString(),
-                    txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(), paymentMode, "IN", "Payed")
+                    txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(),
+                    paymentMode, "IN", "Payed")
             else
                 database.addData(IDGenrator.getId("DATA"),
-                    BookId, BookId, txt_partyName.text.toString(), txt_partyName.text.toString(),
+                    BookId, BookId, partId, txt_partyName.text.toString(),
                     Business_Selected, txtAmount.text.toString().toInt(), txt_date.text.toString(), txt_time.text.toString(),
                     txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(), paymentMode, "OUT", "Payed")
 
@@ -188,6 +190,7 @@ class CashActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_PARTY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
+                partId = data!!.getStringExtra("partyId").toString()
                 val output = data!!.getStringExtra("name") + " (+91 " + data!!.getStringExtra("number") + ")"
                 txt_partyName.setText("" + output + "")
             }

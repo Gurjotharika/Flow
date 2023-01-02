@@ -51,6 +51,7 @@ class PartyAdapter (private var LST: List<PartyModel>):
              itemView.setOnClickListener {
                  ChoosePartyActivity.name = list.name
                  ChoosePartyActivity.number = list.number
+                 ChoosePartyActivity.id = list.id
 
                  if (ChoosePartyActivity.name.equals(list.name) && ChoosePartyActivity.number.equals(list.number)) {
                      ChoosePartyActivity.isSelected = true

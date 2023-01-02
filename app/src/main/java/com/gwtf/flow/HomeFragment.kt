@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.findFragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -102,6 +103,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(view.context, ReportActivity::class.java))
         }
 
+        val partiesBtn = view.findViewById<LinearLayout>(R.id.partiesBtn)
+        partiesBtn.setOnClickListener {
+            startActivity(Intent(view.context, PartiesActivity::class.java))
+        }
+
         bttnCard2.setOnClickListener {
             startActivity(Intent(view.context, ReportActivity::class.java))
         }
@@ -118,7 +124,7 @@ class HomeFragment : Fragment() {
         }
 
         list_books = view.findViewById<RecyclerView>(R.id.list_books)
-        val layManager = LinearLayoutManager(view.context)
+        val layManager = GridLayoutManager(view.context, 1)
         layManager.orientation = LinearLayoutManager.VERTICAL
         list_books.layoutManager = layManager
 
@@ -162,7 +168,7 @@ class HomeFragment : Fragment() {
         val list_business = view.findViewById<RecyclerView>(R.id.list_business)
         val btn_add_business = view.findViewById<Button>(R.id.btn_add_business)
         val btn_close = view.findViewById<ImageView>(R.id.btn_close)
-        val laManager = LinearLayoutManager(view.context)
+        val laManager = GridLayoutManager(view.context, 1)
         laManager.orientation = LinearLayoutManager.VERTICAL
         list_business.layoutManager = laManager
 

@@ -49,6 +49,8 @@ class ChoosePartyActivity : AppCompatActivity() {
     companion object {
         var name: String = ""
         var number: String = ""
+        var id: String = ""
+
         var isSelected = false
         lateinit var list_contacts: RecyclerView
         lateinit var database: SqlDatabase
@@ -95,6 +97,7 @@ class ChoosePartyActivity : AppCompatActivity() {
         val intent8 = Intent().apply {
             putExtra("name", name)
             putExtra("number", number)
+            putExtra("partyId", id)
         }
         setResult(Activity.RESULT_OK, intent8)
         super.onBackPressed()

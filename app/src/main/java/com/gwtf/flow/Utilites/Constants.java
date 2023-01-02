@@ -9,5 +9,6 @@ public class Constants {
     public static String UserName = "";
     public static String PhoneNumber = "";
     public static String Email = "";
+    public static String Address = "";
 
 }

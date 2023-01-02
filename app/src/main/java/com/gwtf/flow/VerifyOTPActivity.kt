@@ -77,7 +77,7 @@ class VerifyOTPActivity() : AppCompatActivity() {
                     }
                     val db = SqlDatabase(this)
 
-                    db.addPaymentMode("Cash")
+
                     db.addPaymentMode("Online")
                     db.addPaymentMode("PhonePe")
                     db.addPaymentMode("Paytm")

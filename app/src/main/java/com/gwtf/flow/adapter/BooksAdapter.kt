@@ -35,7 +35,7 @@ class BooksAdapter (private val LST: List<BookModel>):
              val txt_bookname = itemView.findViewById<TextView>(R.id.txt_bookname)
              val textView = itemView.findViewById<TextView>(R.id.textView)
              val txt_amountin = itemView.findViewById<TextView>(R.id.txt_amountin)
-             val btn_more = itemView.findViewById<ImageView>(R.id.btn_more)
+//             val btn_more = itemView.findViewById<ImageView>(R.id.btn_more)
              val db = SqlDatabase(itemView.context)
              /// image
              txt_bookname.text = list.name
@@ -51,36 +51,36 @@ class BooksAdapter (private val LST: List<BookModel>):
                      Intent(itemView.context, BookActivity::class.java).putExtra("id", list.id).putExtra("name", list.name)
                  )
              }
-             btn_more.visibility = View.GONE
+//             btn_more.visibility = View.GONE
 
-             btn_more.setOnClickListener {
-                 val popupMenus = PopupMenu(itemView.context, itemView)
-                 popupMenus.inflate(R.menu.menu_book_list)
-                 popupMenus.setOnMenuItemClickListener {
-                     when (it.itemId) {
-                         R.id.menu_rename -> {
-                             itemView.context.startActivity(
-                                 Intent(itemView.context, EditBookNameActivity::class.java)
-                                     .putExtra("BookID", list.id)
-                             )
-                             true
-                         }
-                         R.id.menu_deletebook -> {
-                             itemView.context.startActivity(
-                                 Intent(itemView.context, DuplicateBookActivity::class.java)
-                                     .putExtra("id", list.id).putExtra("name", list.name))
-                             true
-                         }
-                         else -> false
-                     }
-                 }
-                 popupMenus.show()
-                 val popup = PopupMenu::class.java.getDeclaredField("mPopup")
-                 popup.isAccessible = true
-                 val menu = popup.get(popupMenus)
-                 menu.javaClass.getDeclaredMethod("setForceShowIcon", Boolean::class.java)
-                     .invoke(menu, true)
-             }
+//             btn_more.setOnClickListener {
+//                 val popupMenus = PopupMenu(itemView.context, itemView)
+//                 popupMenus.inflate(R.menu.menu_book_list)
+//                 popupMenus.setOnMenuItemClickListener {
+//                     when (it.itemId) {
+//                         R.id.menu_rename -> {
+//                             itemView.context.startActivity(
+//                                 Intent(itemView.context, EditBookNameActivity::class.java)
+//                                     .putExtra("BookID", list.id)
+//                             )
+//                             true
+//                         }
+//                         R.id.menu_deletebook -> {
+//                             itemView.context.startActivity(
+//                                 Intent(itemView.context, DuplicateBookActivity::class.java)
+//                                     .putExtra("id", list.id).putExtra("name", list.name))
+//                             true
+//                         }
+//                         else -> false
+//                     }
+//                 }
+//                 popupMenus.show()
+//                 val popup = PopupMenu::class.java.getDeclaredField("mPopup")
+//                 popup.isAccessible = true
+//                 val menu = popup.get(popupMenus)
+//                 menu.javaClass.getDeclaredMethod("setForceShowIcon", Boolean::class.java)
+//                     .invoke(menu, true)
+//             }
          }
 
      }
