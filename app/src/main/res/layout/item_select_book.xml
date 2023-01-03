@@ -39,7 +39,7 @@
                 android:id="@+id/txt_bookname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Business Book"
+                android:text="@string/business_book"
                 android:textSize="16sp"
                 android:fontFamily="@font/lexend_regular"
                 android:textColor="@color/white"/>

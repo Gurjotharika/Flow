@@ -15,6 +15,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter Detials"
+                android:text="@string/enter_detials"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
@@ -70,7 +71,7 @@
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Enter Your Name"
+                android:hint="@string/enter_your_name"
                 />
 
 
@@ -87,7 +88,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Enter Business Name"
+                android:hint="@string/enter_business_name"
                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -97,7 +98,7 @@
                 android:checked="false"
                 android:drawableTint="@color/white"
                 app:buttonTint="@color/white"
-                android:text="I don't have Business"
+                android:text="@string/i_don_t_have_business"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:fontFamily="@font/lexend_regular"
@@ -109,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_button"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:enabled="false"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"

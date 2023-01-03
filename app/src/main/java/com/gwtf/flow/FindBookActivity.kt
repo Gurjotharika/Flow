@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,11 @@ class FindBookActivity : AppCompatActivity() {
         val layManager = LinearLayoutManager(this)
         layManager.orientation = LinearLayoutManager.VERTICAL
         boooks.layoutManager = layManager
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
 
         notFound = findViewById(R.id.notFound)

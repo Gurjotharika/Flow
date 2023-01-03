@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -25,6 +26,11 @@ class CreateBusinessActivity : AppCompatActivity() {
         val txt_business: EditText = findViewById(R.id.txt_business_name)
         val chk_not_business: CheckBox = findViewById(R.id.chk_not_business)
         val btn_submit: Button = findViewById(R.id.btn_submit)
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         chk_not_business.setOnCheckedChangeListener { compoundButton, b ->
             txt_business.isEnabled = !b

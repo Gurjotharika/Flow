@@ -15,10 +15,11 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
             android:layout_gravity="center"
+            android:src="@drawable/ic_back"
             app:tint="@color/white" />
 
     </LinearLayout>
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Business Name"
+                android:text="@string/add_business_name"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
@@ -70,7 +71,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Enter Business Name"
+                android:hint="@string/enter_business_name"
                 />
 
         </LinearLayout>
@@ -87,7 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Business Setup: Setp 1/3"
+            android:text="@string/business_setup_setp_1_3"
             android:textSize="14sp"
             android:fontFamily="@font/lexend_light"
             android:layout_marginBottom="20dp"
@@ -98,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/shape_button"
-            android:text="Next"
+            android:text="@string/next"
             android:textColor="@color/black"
             android:fontFamily="@font/lexend_medium"/>
     </LinearLayout>

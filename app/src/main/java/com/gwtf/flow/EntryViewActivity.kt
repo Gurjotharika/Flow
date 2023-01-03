@@ -38,6 +38,11 @@ class EntryViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entry_view)
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         val entryType = findViewById<LinearLayout>(R.id.entryType)
         val entryTypeTxt = findViewById<TextView>(R.id.entryTypeTxt)
         val dateTimeTxt = findViewById<TextView>(R.id.dateTimeTxt)

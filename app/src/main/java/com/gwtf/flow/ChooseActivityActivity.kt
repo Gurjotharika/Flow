@@ -67,6 +67,11 @@ class ChooseActivityActivity : AppCompatActivity() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         list_categories.layoutManager = layoutManager
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         getData()
 
         doneSelected.setOnClickListener {

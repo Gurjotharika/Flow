@@ -99,6 +99,11 @@ class EditEntryActivity : AppCompatActivity() {
         _paymentType = intent.getStringExtra("paymentType").toString()
         _time = intent.getStringExtra("time").toString()
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         database = SqlDatabase(this)
 
         val txtAmount = findViewById<EditText>(R.id.txt_amount)

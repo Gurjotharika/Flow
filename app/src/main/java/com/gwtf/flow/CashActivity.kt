@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.TimePicker
@@ -72,6 +73,11 @@ class CashActivity : AppCompatActivity() {
         CashIn = intent.getBooleanExtra("cash", false)
         database = SqlDatabase(this)
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         val txtAmount = findViewById<EditText>(R.id.txt_amount)
         val layout_details = findViewById<View>(R.id.layout_details)
         val saveBtn = findViewById<View>(R.id.saveBtn)
@@ -79,10 +85,15 @@ class CashActivity : AppCompatActivity() {
         txt_date = findViewById(R.id.txt_date)
         txt_time = findViewById(R.id.txt_time)
         txt_partyName = findViewById(R.id.txt_partyName)
+        val settings: ImageView = findViewById(R.id.settings)
         txt_remark = findViewById(R.id.txt_remark)
         txt_category = findViewById(R.id.txt_category)
         list_PaymentMode = findViewById(R.id.list_PaymentMode)
         list_PaymentMode.isNestedScrollingEnabled = false
+
+        settings.setOnClickListener {
+            startActivity(Intent(this, CashSettingsActivity::class.java))
+        }
 
         layout_details.visibility = View.GONE
 
@@ -166,6 +177,14 @@ class CashActivity : AppCompatActivity() {
             mTimePicker.show()
         }
 
+        txt_date.setOnClickListener {
+            DatePickerDialog(this,
+                dateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
         val btn_date = findViewById<LinearLayout>(R.id.btn_date)
         btn_date.setOnClickListener {
             DatePickerDialog(this,
@@ -184,6 +203,30 @@ class CashActivity : AppCompatActivity() {
             txt_title.setTextColor(Color.parseColor("#B0372E"))
             txtAmount.setTextColor(Color.parseColor("#B0372E"))
         }
+        checkSettings()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkSettings()
+    }
+
+    fun checkSettings() {
+        val sharedPreferences = getSharedPreferences(packageName, MODE_PRIVATE)
+        if (sharedPreferences.getBoolean("isParty", true))
+            txt_partyName.visibility = View.VISIBLE
+        else
+            txt_partyName.visibility = View.GONE
+
+        if (sharedPreferences.getBoolean("isCategory", true))
+            txt_category.visibility = View.VISIBLE
+        else
+            txt_category.visibility = View.GONE
+
+        if (sharedPreferences.getBoolean("isMode", true))
+            list_PaymentMode.visibility = View.VISIBLE
+        else
+            list_PaymentMode.visibility = View.GONE
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

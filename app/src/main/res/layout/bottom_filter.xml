@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/lexend_regular"
-            android:text="Add Manually"
+            android:text="@string/add_manually"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
@@ -40,7 +40,7 @@
         android:id="@+id/lastUpdate"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Last Updated"
+        android:text="@string/last_updated"
         android:textColor="@color/white"
         android:paddingStart="5dp"
         android:fontFamily="@font/lexend_regular"/>
@@ -51,14 +51,14 @@
         android:layout_height="50dp"
         android:fontFamily="@font/lexend_regular"
         android:paddingStart="5dp"
-        android:text="Last Created"
+        android:text="@string/last_created"
         android:textColor="@color/white" />
 
     <com.google.android.material.radiobutton.MaterialRadioButton
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Name (A to Z)"
+        android:text="@string/name_a_to_z"
         android:textColor="@color/white"
         android:paddingStart="5dp"
         android:fontFamily="@font/lexend_regular"/>
@@ -67,7 +67,7 @@
         android:id="@+id/netBalance"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Name (Z to A)"
+        android:text="@string/name_z_to_a"
         android:textColor="@color/white"
         android:paddingStart="5dp"
         android:fontFamily="@font/lexend_regular"/>

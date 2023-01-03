@@ -15,6 +15,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete Business Book?"
+                android:text="@string/delete_business_book"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
@@ -75,7 +76,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Are you sure? You will lose all entries of this book parmanently"
+                    android:text="@string/are_you_sure_you_will_lose_all_entries_of_this_book_parmanently"
                     android:textSize="12sp"
                     android:layout_marginStart="15dp"
                     android:textColor="@color/white"/>
@@ -90,7 +91,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="Please type Business Book to confirm"
+                android:text="@string/please_type_business_book_to_confirm"
                 android:fontFamily="@font/lexend_regular"
                 android:alpha=".5"
                 android:textColor="@color/white"
@@ -109,7 +110,7 @@
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Book Name"
+                android:hint="@string/book_name"
                 />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -117,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_button"
-                android:text="Delete"
+                android:text="@string/delete"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/black"

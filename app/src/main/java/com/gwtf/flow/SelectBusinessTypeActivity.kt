@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,6 +47,11 @@ class SelectBusinessTypeActivity : AppCompatActivity() {
 
         val btnSkip = findViewById<TextView>(R.id.btnSkip)
         btn_submit = findViewById(R.id.btn_submit)
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         btnSkip.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))

@@ -3,6 +3,7 @@ package com.gwtf.flow
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -70,6 +71,11 @@ class BookActionActivity : AppCompatActivity() {
         _paymentMode = intent.getStringExtra("paymentMode").toString()
         _paymentType = intent.getStringExtra("paymentType").toString()
         _time = intent.getStringExtra("time").toString()
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         BusinessId = _bookId
 

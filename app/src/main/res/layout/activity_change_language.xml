@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select App Language"
+                android:text="@string/select_app_language"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
@@ -64,7 +64,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="English (Default)"
+                    android:text="@string/english"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
@@ -87,7 +87,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hindi"
+                    android:text="@string/hindi"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
@@ -109,7 +109,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Punjabi"
+                    android:text="@string/punjabi"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"

@@ -61,6 +61,11 @@ class HomeFragment : Fragment() {
             bottomDialog(view.context)
         }
 
+        val upiButton = view.findViewById<LinearLayout>(R.id.upiButton)
+        upiButton.setOnClickListener {
+            startActivity(Intent(view.context, UPIActivity::class.java))
+        }
+
         v = view.context
 
         val sharedPref = view.context.getSharedPreferences(view.context.packageName, AppCompatActivity.MODE_PRIVATE)

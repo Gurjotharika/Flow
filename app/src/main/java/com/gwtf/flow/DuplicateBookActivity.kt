@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import com.gwtf.flow.Database.SqlDatabase
 
@@ -17,6 +18,11 @@ class DuplicateBookActivity : AppCompatActivity() {
         val name = intent.getStringExtra("name")
 
         val db = SqlDatabase(this)
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         val txt_name = findViewById<EditText>(R.id.txt_name)
         val txt_bookname = findViewById<TextView>(R.id.txt_bookname)

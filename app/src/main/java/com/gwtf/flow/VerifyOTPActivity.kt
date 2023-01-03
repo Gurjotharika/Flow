@@ -1,15 +1,12 @@
 package com.gwtf.flow
 
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.EditText
-import android.widget.TextView
 import android.os.Bundle
 import com.gwtf.flow.R
-import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import android.content.Intent
 import android.view.View
-import android.widget.Button
+import android.widget.*
 import com.google.firebase.auth.*
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.MainActivity
@@ -42,6 +39,11 @@ class VerifyOTPActivity() : AppCompatActivity() {
                 intent.getStringExtra("phone")
             )
         )
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         btn_resendOtp.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))

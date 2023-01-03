@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
-    tools:context=".ReportActivity">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dark_mode"
+                android:text="@string/settings"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
@@ -64,11 +63,24 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/light_mode"
+                    android:text="Party"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/partyStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ON"
+                    android:background="@drawable/shape_button"
+                    android:backgroundTint="@color/background_extra_light"
+                    android:padding="6dp"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/blue"/>
+
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -87,11 +99,23 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/dark_mode"
+                    android:text="Category"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/categoryStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ON"
+                    android:background="@drawable/shape_button"
+                    android:backgroundTint="@color/background_extra_light"
+                    android:padding="6dp"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/blue"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -102,42 +126,31 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/modeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Punjabi"
+                    android:text="Payment Mode"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
 
-                <ImageView
+                <TextView
+                    android:id="@+id/modeStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/ic_right"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:visibility="gone"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="ON"
+                    android:background="@drawable/shape_button"
+                    android:backgroundTint="@color/background_extra_light"
+                    android:padding="6dp"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
-                    android:layout_weight="1"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/blue"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

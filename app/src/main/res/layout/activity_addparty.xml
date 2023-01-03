@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choose Party"
+                android:text="@string/choose_party"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
@@ -71,7 +71,7 @@
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Amount"
+                android:hint="@string/amount"
                 />
 
             <LinearLayout
@@ -177,7 +177,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Party Name (Contact)"
+                    android:hint="@string/party_name_contact"
                     />
 
                 <EditText
@@ -194,7 +194,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Remark (Item, Person Name, Quantitty..."
+                    android:hint="@string/remark_item_person_name_quantitty"
                     />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -219,7 +219,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Category"
+                    android:hint="@string/category"
                     />
 
                 <TextView
@@ -228,7 +228,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="Payment Mode"
+                    android:text="@string/payment_mode"
                     android:fontFamily="@font/lexend_regular"
                     android:alpha=".5"
                     android:textColor="@color/white"
@@ -258,7 +258,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/shape_button"
-            android:text="save"
+            android:text="@string/save"
             android:textColor="@color/black"
             android:fontFamily="@font/lexend_medium"/>
 

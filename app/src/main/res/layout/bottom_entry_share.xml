@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/lexend_regular"
-            android:text="Share Bill"
+            android:text="@string/share_bill"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
@@ -66,7 +66,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="BILL"
+                        android:text="@string/bill"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:fontFamily="@font/lexend_regular"
@@ -128,7 +128,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="6dp"
                         android:fontFamily="@font/lexend_light"
-                        android:text="Paid To"
+                        android:text="@string/paid_to"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -142,7 +142,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="6dp"
                         android:fontFamily="@font/lexend_light"
-                        android:text="Mode"
+                        android:text="@string/mode"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -229,7 +229,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/shape_button"
         android:fontFamily="@font/lexend_medium"
-        android:text="share bill"
+        android:text="@string/share_bill"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:drawableTint="@color/background"

@@ -53,6 +53,11 @@ class PaymentModeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment_mode)
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         doneSelected = findViewById(R.id.doneSelected)
         BookId = intent.getStringExtra("BookId").toString()
 

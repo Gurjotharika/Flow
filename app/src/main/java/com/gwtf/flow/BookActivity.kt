@@ -34,6 +34,11 @@ class BookActivity : AppCompatActivity() {
 
         BookId = intent.getStringExtra("id").toString()
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         val bookmore = findViewById<ImageView>(R.id.btn_bookmore)
         bookmore.setOnClickListener {
             val popupMenus = PopupMenu(this, bookmore)

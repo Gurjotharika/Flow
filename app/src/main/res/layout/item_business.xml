@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexend_regular"
-                android:text="Business Name"
+                android:text="@string/business_name"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -49,7 +49,7 @@
                 android:layout_marginTop="5dp"
                 android:alpha=".5"
                 android:fontFamily="@font/lexend_light"
-                android:text="Tap to switch business"
+                android:text="@string/tap_to_switch_business"
                 android:textColor="@color/white"
                 android:textSize="10sp" />
 

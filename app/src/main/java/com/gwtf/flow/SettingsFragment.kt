@@ -1,30 +1,53 @@
 package com.gwtf.flow
 
+import android.app.Activity.RESULT_OK
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.R
-import com.gwtf.flow.Utilites.Constants.Business_Name
-import com.gwtf.flow.Utilites.Constants.PhoneNumber
+import com.gwtf.flow.Utilites.Constants.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class SettingsFragment : Fragment() {
+
+    lateinit var con: Context
+    lateinit var imgUri: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_settings, container, false)
+        con = view.context
+
+        val companyLogo = view.findViewById<ImageView>(R.id.companyLogo)
+        companyLogo.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, 1)
+        }
+        Glide.with(con).load(Business_Image).into(companyLogo)
 
         val businessName = view.findViewById<TextView>(R.id.businessName)
         businessName.setText(Business_Name)
@@ -121,5 +144,51 @@ class SettingsFragment : Fragment() {
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
         intent.setType("message/rfc822")
         startActivity(Intent.createChooser(intent, "Send Email using:"));
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val sharedPref = con.getSharedPreferences(con.packageName, AppCompatActivity.MODE_PRIVATE)
+        if (resultCode == RESULT_OK && requestCode == 1) {
+            imgUri = data?.data.toString()
+            val imageUri: Uri = data?.data as Uri
+            // Firebase Storage
+            uploadImage(imageUri)
+        }
+    }
+
+    fun uploadImage(filePath: Uri){
+        val storageReference = FirebaseStorage.getInstance().reference
+        if(filePath != null){
+            val sharedPref = con.getSharedPreferences(con.packageName, AppCompatActivity.MODE_PRIVATE)
+            val ref = storageReference.child("USER/BUSINESS/" + Business_Selected)
+            val uploadTask = ref.putFile(filePath!!)
+
+            val urlTask = uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val downloadUri = task.result
+                    val editor = sharedPref.edit()
+                    editor.apply {
+                        putString("BusinessImage", downloadUri.toString())
+                        apply()
+                    }
+                    val db = SqlDatabase(con)
+                    db.updateBusinessImage(Business_Selected, downloadUri.toString())
+
+                    val data: MutableMap<String, Any> = HashMap()
+                    data["USER_PROFILE"] = downloadUri.toString()
+
+                }
+            }
+        }else{
+            Toast.makeText(con, "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
     }
 }

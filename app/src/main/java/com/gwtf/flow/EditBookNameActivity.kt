@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.Utilites.getDateTime
@@ -20,6 +21,10 @@ class EditBookNameActivity : AppCompatActivity() {
         val btn_submit = findViewById<Button>(R.id.btn_submit)
         val db = SqlDatabase(this)
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         btn_submit.setOnClickListener {
             if (txt_name.text.isEmpty()) {

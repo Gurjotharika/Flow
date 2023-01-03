@@ -18,6 +18,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -35,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entry Details"
+                android:text="@string/entry_details"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
@@ -43,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Manage your entry details"
+                android:text="@string/manage_your_entry_details"
                 android:fontFamily="@font/lexend_regular"
                 android:alpha=".5"
                 android:textColor="@color/white"
@@ -197,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:text="EDIT ENTRY"
+                        android:text="@string/edit_entry"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:fontFamily="@font/lexend_regular"
@@ -228,7 +229,7 @@
             android:layout_margin="20dp"
             android:gravity="center"
             android:fontFamily="@font/lexend_regular"
-            android:text="Share Entry"
+            android:text="@string/share_entry"
             android:background="@drawable/shape_button"
             android:backgroundTint="#4CAF50"
             android:textColor="@color/white"

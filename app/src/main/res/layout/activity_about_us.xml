@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="About Us"
+                android:text="@string/about_us"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
@@ -54,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
 
 
         </LinearLayout>

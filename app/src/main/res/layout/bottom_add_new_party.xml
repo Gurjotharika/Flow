@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/lexend_regular"
-            android:text="Add Manually"
+            android:text="@string/add_manually"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Party Name"
+        android:text="@string/party_name"
         android:fontFamily="@font/lexend_regular"
         android:alpha=".5"
         android:textColor="@color/white"
@@ -57,14 +57,14 @@
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
-        android:hint="Party Name"
+        android:hint="@string/party_name"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Mobile Number"
+        android:text="@string/mobile_number"
         android:fontFamily="@font/lexend_regular"
         android:alpha=".5"
         android:textColor="@color/white"
@@ -81,14 +81,14 @@
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
-        android:hint="Mobile Number (Optional)"
+        android:hint="@string/mobile_number_optional"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Email"
+        android:text="@string/email"
         android:fontFamily="@font/lexend_regular"
         android:alpha=".5"
         android:textColor="@color/white"
@@ -105,14 +105,14 @@
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
-        android:hint="Email (Optional)"
+        android:hint="@string/email_optional"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Party Type"
+        android:text="@string/party_type"
         android:fontFamily="@font/lexend_regular"
         android:alpha=".5"
         android:textColor="@color/white"
@@ -136,7 +136,7 @@
                 android:id="@+id/customerTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Customer"
+                android:text="@string/customer"
                 android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:paddingBottom="8dp"
@@ -161,7 +161,7 @@
                 android:id="@+id/supplierTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Supplier"
+                android:text="@string/supplier"
                 android:textColor="@color/black"
                 android:paddingStart="15dp"
                 android:paddingBottom="8dp"
@@ -187,7 +187,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/shape_button"
         android:fontFamily="@font/lexend_medium"
-        android:text="Add Party"
+        android:text="@string/add_party"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:drawableTint="@color/background"

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/lexend_regular"
-            android:text="Actions"
+            android:text="@string/actions"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
@@ -39,7 +39,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Transfer entry"
+        android:text="@string/transfer_entry"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:fontFamily="@font/lexend_regular"
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Move Entry"
+                android:text="@string/move_entry"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_medium"/>
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entry will be moved to other book"
+                android:text="@string/entry_will_be_moved_to_other_book"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_light"
@@ -103,7 +103,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Copy Entry"
+                android:text="@string/copy_entry"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_medium"/>
@@ -111,7 +111,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entry will stay in both books"
+                android:text="@string/entry_will_stay_in_both_books"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_light"
@@ -141,7 +141,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Copy Opposite Entry"
+                android:text="@string/copy_opposite_entry"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_medium"/>
@@ -149,7 +149,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cash In entry will be  added as Cash out entry in other book and vice versa"
+                android:text="@string/cash_in_entry_will_be_added_as_cash_out_entry_in_other_book_and_vice_versa"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_light"
@@ -186,7 +186,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete Entry"
+                android:text="@string/delete_entry"
                 android:textSize="16sp"
                 android:textColor="#C23025"
                 android:fontFamily="@font/lexend_medium"/>
@@ -194,7 +194,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entry will get deleted permanently. There is no way to recover"
+                android:text="@string/entry_will_get_deleted_permanently_there_is_no_way_to_recover"
                 android:textSize="12sp"
                 android:textColor="#C23025"
                 android:fontFamily="@font/lexend_light"

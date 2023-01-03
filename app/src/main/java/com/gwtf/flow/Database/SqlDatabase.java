@@ -53,7 +53,7 @@ public class SqlDatabase extends SQLiteOpenHelper {
                 ID + " TEXT, " +
                 "OWNER " + " TEXT," +
                 NAME + " TEXT, " +
-                "IMAGE " + " BLOB, " +
+                "IMAGE " + " TEXT, " +
                 CATEGORY + " TEXT, " +
                 TYPE + " TEXT, " +
                 DATE + " TEXT, " +
@@ -191,7 +191,15 @@ public class SqlDatabase extends SQLiteOpenHelper {
     public void updateBusinessName(String id, String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(NAME, NAME);
+        values.put(NAME, name);
+        db.update(TBL_BUSINESS, values, ID+"=?", new String[] {id});
+        db.close();
+    }
+
+    public void updateBusinessImage(String id, String image) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("IMAGE", image);
         db.update(TBL_BUSINESS, values, ID+"=?", new String[] {id});
         db.close();
     }

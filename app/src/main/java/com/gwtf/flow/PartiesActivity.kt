@@ -35,6 +35,11 @@ class PartiesActivity : AppCompatActivity() {
         db = SqlDatabase(this)
         rcv_parties = findViewById(R.id.listBusiness)
 
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         val layoutManager = GridLayoutManager(this, 1)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         rcv_parties.layoutManager = layoutManager
@@ -43,7 +48,7 @@ class PartiesActivity : AppCompatActivity() {
 
         val flotAddParty = findViewById<FloatingActionButton>(R.id.flotAddParty)
         flotAddParty.setOnClickListener {
-
+            showAddPartyDialog()
         }
     }
 

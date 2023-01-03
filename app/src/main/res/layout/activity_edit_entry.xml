@@ -17,6 +17,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -35,7 +36,7 @@
                 android:id="@+id/txt_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Edit Entry"
+                android:text="@string/edit_entry"
                 android:fontFamily="@font/lexend_medium"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
@@ -70,14 +71,14 @@
                     android:id="@+id/cashIn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cash In"
+                    android:text="@string/cash_in"
                     android:layout_marginStart="15dp"/>
 
                 <RadioButton
                     android:id="@+id/cashOut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cash Out"
+                    android:text="@string/cash_out"
                     android:layout_marginStart="15dp"/>
             </LinearLayout>
 
@@ -94,7 +95,7 @@
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Amount"
+                android:hint="@string/amount"
 
                 />
 
@@ -201,7 +202,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Party Name (Contact)"
+                    android:hint="@string/party_name_contact"
 
                     />
 
@@ -218,7 +219,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Remark (Item, Person Name, Quantitty..."
+                    android:hint="@string/remark_item_person_name_quantitty"
 
                     />
 
@@ -245,7 +246,7 @@
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/lexend_regular"
-                    android:hint="Category"
+                    android:hint="@string/category"
 
                     />
 
@@ -255,7 +256,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="Payment Mode"
+                    android:text="@string/payment_mode"
                     android:fontFamily="@font/lexend_regular"
                     android:alpha=".5"
                     android:textColor="@color/white"
@@ -288,7 +289,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/shape_button"
-            android:text="Update"
+            android:text="@string/update"
             android:textColor="@color/background"
             android:fontFamily="@font/lexend_medium"/>
 

@@ -43,6 +43,13 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         else
             txt_AddEmail.setVisibility(View.GONE);
 
+        txtEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                txt_AddEmail.setVisibility(View.VISIBLE);
+            }
+        });
+
         txt_AddEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

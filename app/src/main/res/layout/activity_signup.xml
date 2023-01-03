@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexend_medium"
-                android:text="Welcome!"
+                android:text="@string/welcome"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginTop="5dp"
                 android:alpha=".5"
                 android:fontFamily="@font/lexend_regular"
-                android:text="Login to auto backup your data securely"
+                android:text="@string/login_to_auto_backup_your_data_securely"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -50,7 +50,7 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/shape_textbox"
                 android:fontFamily="@font/lexend_regular"
-                android:hint="Enter Mobile Number"
+                android:hint="@string/enter_mobile_number"
                 android:paddingStart="15dp"
                 android:textSize="16sp"
                 android:paddingEnd="15dp"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/shape_button"
                 android:fontFamily="@font/lexend_medium"
-                android:text="Send OTP"
+                android:text="@string/send_otp"
                 android:textColor="@color/background" />
 
             <TextView
@@ -72,7 +72,7 @@
                 android:layout_marginTop="25dp"
                 android:alpha=".5"
                 android:fontFamily="@font/lexend_regular"
-                android:text="By creating an account, you agree to our Terms of Services &amp; Privacy Policy"
+                android:text="@string/by_creating_an_account_you_agree_to_our_terms_of_services_amp_privacy_policy"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 

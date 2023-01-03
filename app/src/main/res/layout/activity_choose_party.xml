@@ -41,7 +41,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose Party"
+                    android:text="@string/choose_party"
                     android:fontFamily="@font/lexend_medium"
                     android:textColor="@color/white"
                     android:textSize="18sp"/>
@@ -58,7 +58,7 @@
                 android:backgroundTint="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:contentDescription="Add New Party" />
+                android:contentDescription="@string/add_new_party" />
 
         </LinearLayout>
 
@@ -78,7 +78,7 @@
                     android:layout_height="50dp"
                     android:background="@color/background"
                     android:textColor="@color/white"
-                    android:hint="Type to search and add"
+                    android:hint="@string/type_to_search_and_add"
                     android:paddingStart="15dp"
                     android:layout_marginTop="2dp"
                     android:paddingEnd="15dp"
@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lexend_regular"
                     android:layout_margin="20dp"
-                    android:text="Added Parties (1)"
+                    android:text="@string/added_parties_1"
                     android:textSize="14sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lexend_regular"
                     android:layout_margin="20dp"
-                    android:text="You Have (1) Contacts"
+                    android:text="@string/you_have_1_contacts"
                     android:textSize="14sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -161,7 +161,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Add New Party"
+                            android:text="@string/add_new_party"
                             android:textColor="@color/white"
                             android:textSize="18sp"
                             android:fontFamily="@font/lexend_medium"/>
@@ -169,7 +169,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Add customers and suppliers"
+                            android:text="@string/add_customers_and_suppliers"
                             android:textColor="@color/white"
                             android:alpha=".5"
                             android:textSize="14sp"
@@ -195,7 +195,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="From Contacts"
+                            android:text="@string/from_contacts"
                             android:textColor="@color/blue"
                             android:paddingStart="15dp"
                             android:paddingBottom="8dp"
@@ -219,7 +219,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Enter Name &amp; Add"
+                            android:text="@string/enter_name_amp_add"
                             android:textColor="@color/blue"
                             android:paddingStart="15dp"
                             android:paddingBottom="8dp"
@@ -251,7 +251,7 @@
             android:layout_margin="20dp"
             android:gravity="center"
             android:fontFamily="@font/lexend_regular"
-            android:text="Done"
+            android:text="@string/done"
             android:background="@drawable/shape_button"
             android:textColor="@color/blue_light"
             android:textSize="16sp"

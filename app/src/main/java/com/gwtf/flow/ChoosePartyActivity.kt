@@ -114,6 +114,8 @@ class ChoosePartyActivity : AppCompatActivity() {
         val btn_addparty = findViewById<LinearLayout>(R.id.btnaddparty)
 
 
+
+
         btn_addParty.setOnClickListener{
             showAddPartyDialog()
         }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.widget.doOnTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,6 +23,11 @@ class AddNewBusinessActivity : AppCompatActivity() {
 
         val txt_business: EditText = findViewById(R.id.txt_business_name)
         val btn_submit: Button = findViewById(R.id.btn_submit)
+
+        val backBtn = findViewById<ImageView>(R.id.backBtn)
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         txt_business.requestFocus()
         txt_business.doOnTextChanged { text, start, before, count ->
