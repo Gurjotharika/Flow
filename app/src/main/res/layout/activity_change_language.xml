@@ -85,11 +85,20 @@
                 android:gravity="center">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हिंदी"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/white"/>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/hindi"
+                    android:text="(Hindi)"
                     android:textSize="16sp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
 
@@ -105,13 +114,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ਪੰਜਾਬੀ"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/punjabi"
                     android:textSize="16sp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
 
@@ -126,15 +144,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ਪੰਜਾਬੀ"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="Gujrati"
                     android:textSize="16sp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"/>
 

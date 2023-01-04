@@ -42,6 +42,16 @@ class CategoryAdapter (private val LST: List<CategoriesModel>):
              /// image
              name.text = list.name
 
+             radio.setOnCheckedChangeListener { buttonView, isChecked ->
+                 if (isChecked) {
+                     ChooseActivityActivity.categoy = list.name
+                     ChooseActivityActivity.isSelected = true
+                 } else {
+                     ChooseActivityActivity.isSelected = false
+                 }
+                 ChooseActivityActivity.getData()
+             }
+
              itemView.setOnClickListener {
                  ChooseActivityActivity.categoy = list.name
                  if (ChooseActivityActivity.categoy.equals(list.name)) {

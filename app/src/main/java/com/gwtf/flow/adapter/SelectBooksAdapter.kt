@@ -56,6 +56,14 @@ class SelectBooksAdapter (private val LST: List<BookModel>):
                  BookActionActivity.getData()
              }
 
+
+             img_selected.setOnCheckedChangeListener { buttonView, isChecked ->
+                 if (isChecked) {
+                     BookActionActivity.BusinessId = list.id
+                     img_selected.isChecked = true
+                     BookActionActivity.getData()
+                 }
+             }
          }
 
      }

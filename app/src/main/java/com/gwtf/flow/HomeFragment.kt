@@ -145,11 +145,11 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         getBooksData()
-        txt_incash.text = "" + AmountCalculator.getIn(context)
-        txt_outcash.text = "" + AmountCalculator.getOut(context)
     }
 
     fun getBooksData() {
+        txt_incash.text = "" + AmountCalculator.getIn(context)
+        txt_outcash.text = "" + AmountCalculator.getOut(context)
         if (db.getBooks(Business_Selected).size > 0) {
             layout_no_book.visibility = View.GONE
             layout_books.visibility = View.VISIBLE
@@ -218,7 +218,6 @@ class HomeFragment : Fragment() {
                 db.addCategories(id, "Bonus")
                 db.addCategories(id, "Profit")
                 db.addCategories(id, "Rent")
-
 
                 Toast.makeText(view.context, "Book Successfully Created", Toast.LENGTH_SHORT).show()
                 dialog.hide()
