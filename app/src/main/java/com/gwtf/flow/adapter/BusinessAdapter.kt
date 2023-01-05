@@ -41,7 +41,7 @@ class BusinessAdapter (private val LST: List<BusinessModel>):
 
              val imageView = itemView.findViewById<ImageView>(R.id.image)
              if(list.image.isEmpty() || list.image.equals(null)) {
-                 imageView.setImageResource(R.drawable.building)
+                 imageView.setImageResource(R.drawable.logo)
              } else {
                  Glide.with(itemView.context).load(list.image).into(imageView)
              }

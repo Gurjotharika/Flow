@@ -131,13 +131,13 @@ class CashActivity : AppCompatActivity() {
         saveBtn.setOnClickListener {
             if (CashIn)
                 database.addData(IDGenrator.getId("DATA"),
-                    BookId, BookId, partId, txt_partyName.text.toString(),
+                    BookId, BookId, txt_partyName.text.toString(), partId,
                     Business_Selected, txtAmount.text.toString().toInt(), txt_date.text.toString(), txt_time.text.toString(),
                     txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(),
                     paymentMode, "IN", "Payed")
             else
                 database.addData(IDGenrator.getId("DATA"),
-                    BookId, BookId, partId, txt_partyName.text.toString(),
+                    BookId, BookId, txt_partyName.text.toString(), partId,
                     Business_Selected, txtAmount.text.toString().toInt(), txt_date.text.toString(), txt_time.text.toString(),
                     txt_remark.text.toString(), ChoosePartyActivity.number.toString(), txt_category.text.toString(), paymentMode, "OUT", "Payed")
 

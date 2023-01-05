@@ -111,6 +111,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/punjabiBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center">
@@ -142,14 +143,16 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/gujaratiBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:visibility="gone"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ਪੰਜਾਬੀ"
+                    android:text="ગુજરાતી"
                     android:textSize="16sp"
                     android:fontFamily="@font/lexend_bold"
                     android:layout_marginStart="20dp"
@@ -158,7 +161,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gujrati"
+                    android:text="Gujarati"
                     android:textSize="16sp"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"

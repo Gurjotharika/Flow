@@ -102,15 +102,15 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/autoBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Punjabi"
+                    android:text="Auto"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"

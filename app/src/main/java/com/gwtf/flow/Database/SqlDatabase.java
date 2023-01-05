@@ -278,6 +278,7 @@ public class SqlDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+
     public ArrayList<BookAmountModel> getBooksAmount (String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_BOOKDATA + " WHERE BUSINESSID=?", new String[] {id} );

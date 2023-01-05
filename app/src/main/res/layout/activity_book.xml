@@ -267,6 +267,7 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="15dp"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:layout_marginEnd="15dp">
 
                         <TextView
@@ -275,6 +276,7 @@
                             android:text="@string/view_reports"
                             android:drawableEnd="@drawable/ic_right"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:fontFamily="@font/lexend_medium"
                             android:textColor="#2196F3"
                             android:drawableTint="#2196F3"

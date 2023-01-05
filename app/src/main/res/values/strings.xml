@@ -148,4 +148,20 @@
     <string name="whoops">Whoops...</string>
     <string name="we_re_unable_to_find_the_data_nthat_you_re_looking_for">We\'re unable to find the data \nthat you\'re looking for</string>
     <string name="settings">Settings</string>
+
+    <string-array name="businessTypes" translatable="false">
+        <item>Select Business</item>
+        <item>Agriculture</item>
+        <item>Construction</item>
+        <item>Education</item>
+        <item>Electronics</item>
+        <item>Financial Services</item>
+        <item>Food Restaurant</item>
+        <item>Clothes Fashion</item>
+        <item>Hardware</item>
+        <item>Jewellery</item>
+        <item>Healthcare &amp; Fitness</item>
+        <item>Kirana/Grocery</item>
+        <item>Transport</item>
+    </string-array>
 </resources>

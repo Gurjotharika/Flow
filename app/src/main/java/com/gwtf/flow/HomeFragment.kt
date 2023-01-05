@@ -66,6 +66,16 @@ class HomeFragment : Fragment() {
             startActivity(Intent(view.context, UPIActivity::class.java))
         }
 
+        val gstCalculate = view.findViewById<LinearLayout>(R.id.gstCalculate)
+        gstCalculate.setOnClickListener {
+            startActivity(Intent(view.context, GSTCalculateActivity::class.java))
+        }
+
+        val businessCard = view.findViewById<LinearLayout>(R.id.businessCard)
+        businessCard.setOnClickListener {
+            startActivity(Intent(view.context, BusinessCardActivity::class.java))
+        }
+
         v = view.context
 
         val sharedPref = view.context.getSharedPreferences(view.context.packageName, AppCompatActivity.MODE_PRIVATE)
@@ -75,7 +85,7 @@ class HomeFragment : Fragment() {
 
         val imageView = view.findViewById<ImageView>(R.id.image)
         if(Constants.Business_Image.equals("") || Business_Image.isEmpty()) {
-            imageView.setImageResource(R.drawable.building)
+            imageView.setImageResource(R.drawable.logo)
         } else {
             Glide.with(view.context).load(Business_Image).into(imageView)
         }
@@ -101,8 +111,6 @@ class HomeFragment : Fragment() {
 
         val bttnCard1 = view.findViewById<CardView>(R.id.btn_card1)
         val bttnCard2 = view.findViewById<CardView>(R.id.btn_card2)
-        txt_incash.text = "" + AmountCalculator.getIn(view.context)
-        txt_outcash.text = "" + AmountCalculator.getOut(view.context)
 
         bttnCard1.setOnClickListener {
             startActivity(Intent(view.context, ReportActivity::class.java))

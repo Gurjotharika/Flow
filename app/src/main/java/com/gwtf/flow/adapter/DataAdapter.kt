@@ -39,7 +39,7 @@ class DataAdapter (private var LST: List<DataModel>):
              val amount = itemView.findViewById<TextView>(R.id.amount)
              val time_text = itemView.findViewById<TextView>(R.id.time_text)
 
-             title.text = list.PARTYID
+             title.text = list.partyName
              time_text.text = "Date: " + list.date + " Time: " + list.time
              amount.text = list.amount
              remark.text = list.remark

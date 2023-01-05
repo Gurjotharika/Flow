@@ -4,13 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:weightSum="10">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="80dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -82,7 +80,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:background="@android:color/transparent"
-                    android:text="455"
+                    android:text="100"
                     android:maxLength="13"
                     android:fontFamily="@font/lexend_medium"
                     android:textColor="@color/blue"
@@ -200,6 +198,7 @@
             android:padding="20dp">
 
             <TextView
+                android:id="@+id/stateGST"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CGST/SGST: 2.5"
@@ -214,6 +213,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -418,9 +418,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_remove"
-                        android:tint="@color/blue"
                         android:layout_gravity="center"
-                        android:paddingLeft="5dp"/>
+                        android:paddingLeft="5dp"
+                        app:tint="@color/blue" />
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -5,16 +5,38 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
 import com.gwtf.flow.Database.SqlDatabase
 import com.gwtf.flow.Utilites.Constants
+import com.gwtf.flow.Utilites.LocaleHelper
 
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        val sharedPref = getSharedPreferences(packageName, MODE_PRIVATE)
+
+        if (sharedPref.getString("mode", "").equals("dark"))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else if (sharedPref.getString("mode", "").equals("light"))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+
+        if (sharedPref.getString("AppLang", "").equals("hi")) {
+            LocaleHelper.setLocale(this, "hi")
+            getResources()
+        } else if (sharedPref.getString("AppLang", "").equals("pa")) {
+            LocaleHelper.setLocale(this, "pa")
+            getResources()
+        } else {
+            LocaleHelper.setLocale(this, "en")
+            getResources()
+        }
+
 
         val db = SqlDatabase(this)
 
@@ -31,7 +53,6 @@ class SplashActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    val sharedPref = getSharedPreferences(packageName, MODE_PRIVATE)
                     Constants.Business_Selected =
                         sharedPref.getString("BusinessSelected", null).toString()
                     Constants.Business_Name = sharedPref.getString("BusinessName", null).toString()

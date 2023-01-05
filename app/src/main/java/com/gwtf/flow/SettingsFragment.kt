@@ -18,6 +18,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
@@ -47,13 +48,21 @@ class SettingsFragment : Fragment() {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, 1)
         }
-        Glide.with(con).load(Business_Image).into(companyLogo)
+        if (Business_Image.equals("") || Business_Image.equals(null))
+            companyLogo.setImageResource(R.drawable.logo)
+        else
+            Glide.with(con).load(Business_Image).into(companyLogo)
 
         val businessName = view.findViewById<TextView>(R.id.businessName)
         businessName.setText(Business_Name)
 
         val txt_mobile = view.findViewById<TextView>(R.id.txt_mobile)
         txt_mobile.setText(PhoneNumber)
+
+        val businessCard = view.findViewById<CardView>(R.id.businessCard)
+        businessCard.setOnClickListener {
+            startActivity(Intent(view.context, BusinessCardActivity::class.java))
+        }
 
 
         val aboutUs = view.findViewById<LinearLayout>(R.id.aboutUs)
