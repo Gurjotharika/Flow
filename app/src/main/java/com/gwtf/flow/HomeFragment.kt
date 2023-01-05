@@ -2,6 +2,7 @@ package com.gwtf.flow
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.provider.ContactsContract.Directory
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.parser.IntegerParser
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,6 +49,7 @@ class HomeFragment : Fragment() {
     lateinit var layout_no_book: View
     lateinit var txt_incash: TextView
     lateinit var txt_outcash: TextView
+    lateinit var txt_total: TextView
     lateinit var layout_books: LinearLayout
 
     override fun onCreateView(
@@ -98,6 +101,7 @@ class HomeFragment : Fragment() {
 
         txt_incash = view.findViewById<TextView>(R.id.txt_incash)
         txt_outcash = view.findViewById<TextView>(R.id.txt_outcash)
+        txt_total = view.findViewById<TextView>(R.id.txt_total)
 
         val btnFilter = view.findViewById<ImageView>(R.id.btnFilter)
         btnFilter.setOnClickListener {
@@ -158,6 +162,8 @@ class HomeFragment : Fragment() {
     fun getBooksData() {
         txt_incash.text = "" + AmountCalculator.getIn(context)
         txt_outcash.text = "" + AmountCalculator.getOut(context)
+        txt_total.text = "" + (AmountCalculator.getIn(context) - AmountCalculator.getOut(context))
+
         if (db.getBooks(Business_Selected).size > 0) {
             layout_no_book.visibility = View.GONE
             layout_books.visibility = View.VISIBLE

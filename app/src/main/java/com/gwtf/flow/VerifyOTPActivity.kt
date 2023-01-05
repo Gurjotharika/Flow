@@ -29,6 +29,17 @@ class VerifyOTPActivity() : AppCompatActivity() {
         auth=FirebaseAuth.getInstance()
         dialog = LoadingDialog(this)
 
+        val help = findViewById<TextView>(R.id.help)
+        help.setOnClickListener {
+            val subject = "Support: Flow"
+            val intent = Intent(Intent.ACTION_SEND)
+            val addressees = arrayOf("gurjotsinghharika@gmail.com")
+            intent.putExtra(Intent.EXTRA_EMAIL, addressees)
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+            intent.setType("message/rfc822")
+            startActivity(Intent.createChooser(intent, "Send Email using:"));
+        }
+
         btn_resendOtp = findViewById(R.id.btn_resendOtp)
         txt_otp = findViewById(R.id.txt_otp)
         Etphone = findViewById(R.id.Etphone)
